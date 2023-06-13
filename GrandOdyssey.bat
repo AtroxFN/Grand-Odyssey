@@ -1,19 +1,54 @@
-@echo off&& set cx=0
-mode con cols=80 lines=25
-echo.&& echo.&& echo.&& echo.&& echo.&& echo [CLOSE]
-:ini
-call:gtC
-if %cx%==1 (call:cmps) else (set cx=1)
-goto :ini
+@Echo off
+@Mode 100,30
+@Title %~n0
+Batbox /h 0
 
-:gtC
-echo.exit|cmd/K prompt $_a100$_mov ax,5$_int 33$_cmp ax,1$_jl 0100$_mov ax,3$_int 33$_$_g10D$_rdx$_$_rcx$_$_q>$
-call:gtC_f 12&& set x=%reg:~3,4%
-call:gtC_f 13&& set y=%reg:~3,4%
-goto:eof
-:gtC_f
-for /f “usebackq skip=%1 delims=” %%a in (`debug^<$^|find “0”`) do set reg=%%a&& goto:eof
+set load1name= ?????? 
+set load2name= ?????? 
+set path="Odyssey_data\bin\buttonclient\"
 
-:cmps
-for %%a in (A0 A8 B0 B8 C0 C8 D0 D8) do if %x%%y%==00%%a0028 exit
-goto:eof
+:mainmenu
+cls
+Call %path%Button  44 10 "Load Save" 44 13 "Start New" 44.5 16 "  Leave  " # Press
+Getinput /m %Press% /h 70
+
+:: Check for the pressed button 
+if %errorlevel%==1 (goto loadSave)
+if %errorlevel%==2 (goto newSave)
+if %errorlevel%==3 (exit)
+goto mainmenu
+
+:loadSave
+cls
+Call %path%Button  44 10 "%load1name%" 44 13 "%load2name%" 44.5 16 " Return " # Press
+Getinput /m %Press% /h 70
+
+:: Check for the pressed button 
+if %errorlevel%==1 (goto load2)
+if %errorlevel%==2 (goto load2)
+if %errorlevel%==3 (goto mainmenu)
+goto loadSave
+
+:newSave
+cls
+Call %path%Button  44 10 "  Name  " 44 13 " Submit " 44.5 16 " Return " # Press
+Getinput /m %Press% /h 70
+
+:: Check for the pressed button 
+if %errorlevel%==1 (goto makeName)
+if %errorlevel%==2 (goto newSave)
+if %errorlevel%==3 (goto mainmenu)
+goto newSave
+
+:makeName
+cls
+Echo Please enter your adventurer name:
+if %load1name%== ?????? (
+    set /p load1name=
+    goto loadSave
+)
+if %load2name%== ?????? (
+    set /p load2name=
+    goto loadSave
+)
+goto loadSave
