@@ -7,6 +7,7 @@ set load1name= ??????
 set load2name= ?????? 
 set path="Odyssey_data\bin\buttonclient\"
 
+// MARK: Main Menu
 :mainmenu
 cls
 Call %path%Button  44 10 "Load Save" 44 13 "Start New" 44.5 16 "  Leave  " # Press
@@ -53,6 +54,7 @@ if %load2name%== ?????? (
 )
 goto loadSave
 
+// MARK: Camp
 :load1
 cls
 Call %path%Button  33 13 "Adventure Map" 33 16 "Light Satchel" 55 13 "Player Details" 55 16 "Exit Odyssey" # Press
@@ -67,3 +69,16 @@ goto mainmenu
 
 
 :load2
+
+
+
+:mapBasic
+
+
+
+:userSatchel
+
+
+
+:userDetails
+cls
