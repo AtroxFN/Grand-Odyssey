@@ -30,7 +30,7 @@ goto mainmenu
 
 :newSave
 cls
-Call Button  44 10 "  Name  " 44 13 "Submit" 44.5 16 " Return " # Press
+Call Button  44 10 "  Name  " 44 13 " Submit " 44.5 16 " Return " # Press
 Getinput /m %Press% /h 70
 
 :: Check for the pressed button 
