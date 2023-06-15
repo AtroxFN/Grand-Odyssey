@@ -1,7 +1,7 @@
 @echo off
 @mode con cols=101 lines=30
+@title %~n0
 Batbox /h 0
-
 set load1name= ?????? 
 set load2name= ?????? 
 set path="Odyssey_data\bin\buttonclient\"
@@ -9,7 +9,6 @@ set path="Odyssey_data\bin\buttonclient\"
 // MARK: Main Menu
 :mainmenu
 cls   
-title %~n0
 echo [36m 
 echo [36m 
 echo [36m 
@@ -21,7 +20,7 @@ echo [36m #g   ** *r      *a   #  *n   ## *d   ##  [91m  #o    ** *d   ## *y  
 echo [36m  #g***  *r       *a#### *n   ##  *d####  [91m   #o****   *d####  *y#### *s####  *s####   *e####  *y####[37m 
 echo [36m                                          [91m                        *y                              *y[37m 
 echo [36m                                          [91m                  *y####                          *y####  [37m
-echo. [37m
+echo. [93m
 Call %path%Button 44 16 "Load Save" 44 19 "Start New" 44 22 "  Leave  " # Press
 Getinput /m %Press% /h 70
 
@@ -66,7 +65,7 @@ if %load2name%== ?????? (
 )
 goto loadSave
 
-// MARK: Camp
+// MARK: Load #1
 :load1
 cls
 Call %path%Button  34 13 "Adventure Map" 34 16 "Light Satchel" 54 13 "Player Details" 54 16 "Leave Campaign" # Press
@@ -76,17 +75,16 @@ Getinput /m %Press% /h 70
 if %errorlevel%==1 (goto mapBasic)
 if %errorlevel%==2 (goto userSatchel)
 if %errorlevel%==3 (goto userDetails)
-if %errorlevel%==3 (goto mainmenu)
+if %errorlevel%==4 (goto mainmenu)
 goto mainmenu
 
-
+// MARK: Load #2
 :load2
 cls
 
 
 :mapBasic
 cls
-@mode 101,30
 
 
 :userSatchel
