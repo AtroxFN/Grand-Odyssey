@@ -9,8 +9,17 @@ set path="Odyssey_data\bin\buttonclient\"
 
 // MARK: Main Menu
 :mainmenu
-cls
-Call %path%Button  44 10 "Load Save" 44 13 "Start New" 44.5 16 "  Leave  " # Press
+cls   
+echo [36m  #g****                              *d  [91m   #o****       *d                                        [37m 
+echo [36m #g                                   *d  [91m  #o    **      *d                                        [37m 
+echo [36m#g  ***   *r###  *a####  *n####   *d####  [91m  #o    **  *d#### *y   ##  *s####  *s#### *e##### *y   ##[37m 
+echo [36m#g    ** *r   ##  *a###  *n   ## *d   ##  [91m  #o    ** *d   ## *y   ## *s####  *s####  *e####  *y   ##[37m 
+echo [36m #g   ** *r      *a   #  *n   ## *d   ##  [91m  #o    ** *d   ## *y   ##      *s      *s *e      *y   ##[37m 
+echo [36m  #g***  *r       *a#### *n   ##  *d####  [91m   #o****   *d####  *y#### *s####  *s####   *e####  *y####[37m 
+echo [36m                                          [91m                        *y                              *y[37m 
+echo [36m                                          [91m                  *y####                          *y####  [37m
+echo. [37m
+Call %path%Button 44 16 "Load Save" 44 19 "Start New" 44 22 "  Leave  " # Press
 Getinput /m %Press% /h 70
 
 :: Check for the pressed button 
