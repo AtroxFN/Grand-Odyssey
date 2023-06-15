@@ -1,6 +1,5 @@
 @echo off
-@mode 101,30
-@title %~n0
+@mode con cols=101 lines=30
 Batbox /h 0
 
 set load1name= ?????? 
@@ -10,6 +9,10 @@ set path="Odyssey_data\bin\buttonclient\"
 // MARK: Main Menu
 :mainmenu
 cls   
+title %~n0
+echo [36m 
+echo [36m 
+echo [36m 
 echo [36m  #g****                              *d  [91m   #o****       *d                                        [37m 
 echo [36m #g                                   *d  [91m  #o    **      *d                                        [37m 
 echo [36m#g  ***   *r###  *a####  *n####   *d####  [91m  #o    **  *d#### *y   ##  *s####  *s#### *e##### *y   ##[37m 
@@ -66,7 +69,7 @@ goto loadSave
 // MARK: Camp
 :load1
 cls
-Call %path%Button  33 13 "Adventure Map" 33 16 "Light Satchel" 55 13 "Player Details" 55 16 "Exit Odyssey" # Press
+Call %path%Button  34 13 "Adventure Map" 34 16 "Light Satchel" 54 13 "Player Details" 54 16 "Leave Campaign" # Press
 Getinput /m %Press% /h 70
 
 :: Check for the pressed button 
@@ -78,15 +81,16 @@ goto mainmenu
 
 
 :load2
-
+cls
 
 
 :mapBasic
-
+cls
+@mode 101,30
 
 
 :userSatchel
-
+cls
 
 
 :userDetails

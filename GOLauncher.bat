@@ -1,3 +1,3 @@
 @echo off
 
-call Odyssey_data\lib\gameCore\GrandOdyssey.bat
+call Odyssey_data\bin\coredata\core.bat
