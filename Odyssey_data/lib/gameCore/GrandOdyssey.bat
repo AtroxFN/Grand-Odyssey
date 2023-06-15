@@ -1,5 +1,5 @@
 @echo off
-@mode 100,30
+@mode 101,30
 @title %~n0
 Batbox /h 0
 
